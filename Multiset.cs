@@ -17,14 +17,14 @@ namespace Numerical3DMatching
 			this.score = score;
 		}
 
-        public static int[] Shuffle(int[] array)
+        private static int[] Shuffle(int[] array)
         {
             int[] newArray = array;
             for (int i = 1; i < newArray.Length; i++)
             {
                 Random rnd = new Random();
-                int number = rnd.Next(0, 1); // creates a number between 0 and 1
-                if (true)
+                int number = rnd.Next(0, 2); // creates a number between 0 and 1
+                if (number == 1)
                 {
                     int holder = newArray[i];
                     newArray[i] = newArray[i - 1];
@@ -40,7 +40,7 @@ namespace Numerical3DMatching
 			Multiset mutatedChild = this;
 
             Random rnd = new Random();
-            int number = rnd.Next(0, 2); // creates a number between 0 and 2
+            int number = rnd.Next(0, 3); // creates a number between 0 and 2
             if(number == 0)
             {
                 mutatedChild.X = Shuffle(mutatedChild.X);  
@@ -55,6 +55,39 @@ namespace Numerical3DMatching
 
 			return mutatedChild;
 		}
+
+        public void print()
+        {
+            //Console.Write("{0},{1},{2}, {3},{4},{5}, {6},{7},{8} Score: {9}/n", initialSet.X[0], initialSet.X[1], initialSet.X[2], initialSet.Y[0], initialSet.Y[1], initialSet.Y[2], initialSet.Z[0], initialSet.Z[1], initialSet.Z[2], initialSet.score);
+            Console.Write("X: ");
+            for (int i = 0; i < this.X.Length; i++)
+            {
+                if(i != 0){
+                    Console.Write(", ");
+                }
+                Console.Write("{0}", this.X[i]);
+            }
+            Console.Write("\nY: ");
+            for (int i = 0; i < this.Y.Length; i++)
+            {
+                if (i != 0)
+                {
+                    Console.Write(", ");
+                }
+                Console.Write("{0}", this.Y[i]);
+            }
+            Console.Write("\nZ: ");
+            for (int i = 0; i < this.Z.Length; i++)
+            {
+                if (i != 0)
+                {
+                    Console.Write(", ");
+                }
+                Console.Write("{0}", this.Z[i]);
+            }
+            Console.Write("\nScore: {0}\n", this.score);
+
+        }
 
     }
 }
