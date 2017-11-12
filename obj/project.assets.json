@@ -673,11 +673,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Michael\\Documents\\Visual Studio 2017\\Projects\\Numerical3DMatching\\Numerical3DMatching\\Numerical3DMatching.csproj",
+      "projectUniqueName": "C:\\Users\\Michael\\Documents\\GitHub\\AI-Project\\Numerical3DMatching.csproj",
       "projectName": "Numerical3DMatching",
-      "projectPath": "C:\\Users\\Michael\\Documents\\Visual Studio 2017\\Projects\\Numerical3DMatching\\Numerical3DMatching\\Numerical3DMatching.csproj",
+      "projectPath": "C:\\Users\\Michael\\Documents\\GitHub\\AI-Project\\Numerical3DMatching.csproj",
       "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Michael\\Documents\\Visual Studio 2017\\Projects\\Numerical3DMatching\\Numerical3DMatching\\obj\\",
+      "outputPath": "C:\\Users\\Michael\\Documents\\GitHub\\AI-Project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
