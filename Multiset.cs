@@ -89,6 +89,46 @@ namespace Numerical3DMatching
 
         }
 
+        public Boolean CheckSolvability(int b)
+        {
+            Boolean isSolveable = true;
+            if (this.X.Length != this.Y.Length || this.Y.Length != this.Z.Length || this.X.Length != this.Z.Length)
+            {
+                isSolveable = false;
+                Console.Write("Some sets are not the same length \n This will not try to be solved. \n");
+            }
+            else
+            {
+                Console.Write("All sets are the same length \n");
+                int checkSum = b * this.X.Length;
+
+                foreach (int x in this.X)
+                {
+                    checkSum = checkSum - x;
+                }
+                foreach (int y in this.Y)
+                {
+                    checkSum = checkSum - y;
+                }
+                foreach (int z in this.Z)
+                {
+                    checkSum = checkSum - z;
+                }
+                //check if valid
+                if (checkSum == 0)
+                {
+                    Console.WriteLine("Check sum checks out. This will now try to be solved. \n");
+                } else{
+                    Console.WriteLine("Check sum does not check out. This will not try to be solved. \n");
+                    isSolveable = false;
+                }
+
+
+            }
+
+            return isSolveable;
+        }
+
 		public Multiset Randomize(Multiset init)
 		{
 			Multiset parent = init;
