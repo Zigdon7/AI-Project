@@ -9,12 +9,16 @@ namespace Numerical3DMatching
 	{
 		public int[] X, Y, Z;
 		public int score;
-		public Multiset(int[] X, int[] Y, int[] Z, int score = 0)
+		public Multiset(int[] X, int[] Y, int[] Z, int b = 0)
 		{
 			this.X = X;
 			this.Y = Y;
 			this.Z = Z;
-			this.score = score;
+            this.score = 0;
+            for (int i = 0; i < X.Length; i++)
+            {
+                this.score += Math.Abs(X[i] + Y[i] + Z[i] - Global.b());
+            }
 		}
 
         private static int[] Shuffle(int[] array)
