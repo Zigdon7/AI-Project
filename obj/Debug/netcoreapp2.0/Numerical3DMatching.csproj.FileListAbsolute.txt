@@ -1,0 +1,11 @@
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\Numerical3DMatching\Numerical3DMatching\bin\Debug\netcoreapp2.0\Numerical3DMatching.deps.json
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\Numerical3DMatching\Numerical3DMatching\bin\Debug\netcoreapp2.0\Numerical3DMatching.runtimeconfig.json
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\Numerical3DMatching\Numerical3DMatching\bin\Debug\netcoreapp2.0\Numerical3DMatching.runtimeconfig.dev.json
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\Numerical3DMatching\Numerical3DMatching\bin\Debug\netcoreapp2.0\Numerical3DMatching.dll
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\Numerical3DMatching\Numerical3DMatching\bin\Debug\netcoreapp2.0\Numerical3DMatching.pdb
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\Numerical3DMatching\Numerical3DMatching\obj\Debug\netcoreapp2.0\Numerical3DMatching.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\Numerical3DMatching\Numerical3DMatching\obj\Debug\netcoreapp2.0\Numerical3DMatching.csproj.CoreCompileInputs.cache
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\Numerical3DMatching\Numerical3DMatching\obj\Debug\netcoreapp2.0\Numerical3DMatching.AssemblyInfoInputs.cache
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\Numerical3DMatching\Numerical3DMatching\obj\Debug\netcoreapp2.0\Numerical3DMatching.AssemblyInfo.cs
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\Numerical3DMatching\Numerical3DMatching\obj\Debug\netcoreapp2.0\Numerical3DMatching.dll
+C:\Users\Michael\Documents\Visual Studio 2017\Projects\Numerical3DMatching\Numerical3DMatching\obj\Debug\netcoreapp2.0\Numerical3DMatching.pdb
