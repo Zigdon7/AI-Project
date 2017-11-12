@@ -45,7 +45,7 @@ namespace Numerical3DMatching
 				Multiset newParent = initialSet;
 				parentList.Add(initialSet.Randomize(newParent));
 			}
-
+			parentList[0].print();
 			//Create Children
 			//if child needs to be mutated, call Mutate Function
 

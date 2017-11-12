@@ -9,17 +9,6 @@ C:/Users/Michael/Documents/Visual Studio 2017/Projects/Numerical3DMatching/Numer
 C:/Users/Michael/Documents/Visual Studio 2017/Projects/Numerical3DMatching/Numerical3DMatching/obj/Debug/netcoreapp2.0/Numerical3DMatching.AssemblyInfo.cs
 C:/Users/Michael/Documents/Visual Studio 2017/Projects/Numerical3DMatching/Numerical3DMatching/obj/Debug/netcoreapp2.0/Numerical3DMatching.dll
 C:/Users/Michael/Documents/Visual Studio 2017/Projects/Numerical3DMatching/Numerical3DMatching/obj/Debug/netcoreapp2.0/Numerical3DMatching.pdb
-C:/Users/Michael/Documents/GitHub/AI-Project/obj/Debug/netcoreapp2.0/Numerical3DMatching.csprojResolveAssemblyReference.cache
-C:/Users/Michael/Documents/GitHub/AI-Project/obj/Debug/netcoreapp2.0/Numerical3DMatching.csproj.CoreCompileInputs.cache
-C:/Users/Michael/Documents/GitHub/AI-Project/obj/Debug/netcoreapp2.0/Numerical3DMatching.AssemblyInfoInputs.cache
-C:/Users/Michael/Documents/GitHub/AI-Project/obj/Debug/netcoreapp2.0/Numerical3DMatching.AssemblyInfo.cs
-C:/Users/Michael/Documents/GitHub/AI-Project/obj/Debug/netcoreapp2.0/Numerical3DMatching.dll
-C:/Users/Michael/Documents/GitHub/AI-Project/obj/Debug/netcoreapp2.0/Numerical3DMatching.pdb
-C:/Users/Michael/Documents/GitHub/AI-Project/bin/Debug/netcoreapp2.0/Numerical3DMatching.deps.json
-C:/Users/Michael/Documents/GitHub/AI-Project/bin/Debug/netcoreapp2.0/Numerical3DMatching.runtimeconfig.json
-C:/Users/Michael/Documents/GitHub/AI-Project/bin/Debug/netcoreapp2.0/Numerical3DMatching.runtimeconfig.dev.json
-C:/Users/Michael/Documents/GitHub/AI-Project/bin/Debug/netcoreapp2.0/Numerical3DMatching.dll
-C:/Users/Michael/Documents/GitHub/AI-Project/bin/Debug/netcoreapp2.0/Numerical3DMatching.pdb
 /Users/zack/Desktop/MEGAsync/2017 - Fall/CECS-545/FINAL/AI-Project/obj/Debug/netcoreapp2.0/Numerical3DMatching.csprojResolveAssemblyReference.cache
 /Users/zack/Desktop/MEGAsync/2017 - Fall/CECS-545/FINAL/AI-Project/obj/Debug/netcoreapp2.0/Numerical3DMatching.csproj.CoreCompileInputs.cache
 /Users/zack/Desktop/MEGAsync/2017 - Fall/CECS-545/FINAL/AI-Project/obj/Debug/netcoreapp2.0/Numerical3DMatching.AssemblyInfoInputs.cache
@@ -31,3 +20,14 @@ C:/Users/Michael/Documents/GitHub/AI-Project/bin/Debug/netcoreapp2.0/Numerical3D
 /Users/zack/Desktop/MEGAsync/2017 - Fall/CECS-545/FINAL/AI-Project/bin/Debug/netcoreapp2.0/Numerical3DMatching.runtimeconfig.dev.json
 /Users/zack/Desktop/MEGAsync/2017 - Fall/CECS-545/FINAL/AI-Project/bin/Debug/netcoreapp2.0/Numerical3DMatching.dll
 /Users/zack/Desktop/MEGAsync/2017 - Fall/CECS-545/FINAL/AI-Project/bin/Debug/netcoreapp2.0/Numerical3DMatching.pdb
+C:\Users\Michael\Documents\GitHub\AI-Project\bin\Debug\netcoreapp2.0\Numerical3DMatching.deps.json
+C:\Users\Michael\Documents\GitHub\AI-Project\bin\Debug\netcoreapp2.0\Numerical3DMatching.runtimeconfig.json
+C:\Users\Michael\Documents\GitHub\AI-Project\bin\Debug\netcoreapp2.0\Numerical3DMatching.runtimeconfig.dev.json
+C:\Users\Michael\Documents\GitHub\AI-Project\bin\Debug\netcoreapp2.0\Numerical3DMatching.dll
+C:\Users\Michael\Documents\GitHub\AI-Project\bin\Debug\netcoreapp2.0\Numerical3DMatching.pdb
+C:\Users\Michael\Documents\GitHub\AI-Project\obj\Debug\netcoreapp2.0\Numerical3DMatching.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Documents\GitHub\AI-Project\obj\Debug\netcoreapp2.0\Numerical3DMatching.csproj.CoreCompileInputs.cache
+C:\Users\Michael\Documents\GitHub\AI-Project\obj\Debug\netcoreapp2.0\Numerical3DMatching.AssemblyInfoInputs.cache
+C:\Users\Michael\Documents\GitHub\AI-Project\obj\Debug\netcoreapp2.0\Numerical3DMatching.AssemblyInfo.cs
+C:\Users\Michael\Documents\GitHub\AI-Project\obj\Debug\netcoreapp2.0\Numerical3DMatching.dll
+C:\Users\Michael\Documents\GitHub\AI-Project\obj\Debug\netcoreapp2.0\Numerical3DMatching.pdb
