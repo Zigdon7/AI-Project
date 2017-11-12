@@ -31,7 +31,8 @@ namespace Numerical3DMatching
 			}
 			//Randomly create 1000k parents
 			Multiset initialSet = new Multiset(X, Y, Z);
-			//Console.Write("{{0},{1},{2}}, {{3},{4},{5}}, {{6},{7},{8}} Score: {9}/n", initialSet.X[0], initialSet.X[1], initialSet.X[2], initialSet.Y[0], initialSet.Y[1],initialSet.Y[2], initialSet.Z[0],initialSet.Z[1],initialSet.Z[2],initialSet.score);
+            initialSet = initialSet.MutateChild();
+			Console.Write("{0},{1},{2}, {3},{4},{5}, {6},{7},{8} Score: {9}/n", initialSet.X[0], initialSet.X[1], initialSet.X[2], initialSet.Y[0], initialSet.Y[1],initialSet.Y[2], initialSet.Z[0],initialSet.Z[1],initialSet.Z[2],initialSet.score);
 
 
 			//Create Children

@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{4E7F3891-1FD4-4A56-B737-25E10EA5EC9A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Multiset.cs">
+    <Files>
+      <File FileName="Multiset.cs" Line="1" Column="1" />
+      <File FileName="Program.cs" Line="17" Column="13" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Numerical3DMatching PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
