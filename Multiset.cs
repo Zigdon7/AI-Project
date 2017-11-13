@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Numerical3DMatching
 {
 
-	class Multiset
+	public class Multiset
 	{
 		public int[] X, Y, Z;
 		public int totalScore;
@@ -133,7 +134,7 @@ namespace Numerical3DMatching
             return isSolveable;
         }
 
-		public Multiset Randomize(Multiset init)
+		public static Multiset Randomize(Multiset init)
 		{
 			Multiset parent = init;
 			Random rand = new Random();
@@ -159,7 +160,7 @@ namespace Numerical3DMatching
 				parent.Z[k] = zList[randomNum];
 				zList.RemoveAt(randomNum);
 			}
-			//parent.print();
+			parent.print();
 			//Console.Write("{0},{1},{2}, {3},{4},{5}, {6},{7},{8} Score: {9}\n", parent.X[0], parent.X[1], parent.X[2], parent.Y[0], parent.Y[1], parent.Y[2], parent.Z[0], parent.Z[1], parent.Z[2], parent.score);
 
 			return parent;
@@ -173,6 +174,59 @@ namespace Numerical3DMatching
             }
             n.Sort((x, y) => x.score.CompareTo(y.score));
             return n;
+        }
+        public static Multiset CreateChild(Multiset parent1, Multiset parent2)
+        {
+            Multiset parent = Global.Initial();
+            var xList = new List<int>(parent.X);
+            var yList = new List<int>(parent.Y);
+            var zList = new List<int>(parent.Z);
+            int childSizeCounter = 0;
+            List<Node> childNodeList = new List<Node>();
+            List<Node> ParentToChild = new List<Node>();
+            childNodeList = Node.MergeNodeLists(parent1.ToNodeList(), parent2.ToNodeList());
+
+            foreach (Node nodes in childNodeList)
+            {
+                if (xList.Contains(nodes.X) && yList.Contains(nodes.Y) && zList.Contains(nodes.Z))
+                {
+                    //Node n is new and needs to be added to child
+                    ParentToChild.Add(nodes);
+                    xList.Remove(nodes.X);
+                    yList.Remove(nodes.Y);
+                    zList.Remove(nodes.Z);
+                    childSizeCounter++;
+                }
+            }
+            List<Node> child = new List<Node>();
+            if (childSizeCounter < parent.X.Length)
+            {
+                List<Node> roulette = new List<Node>();
+                xList.OrderByDescending(i => i); ;
+                yList.OrderByDescending(i => i);
+                zList.OrderByDescending(i => i);
+                for (int i = 0; i < xList.Count(); i++)
+                {
+                    roulette.Add(new Node(xList[i], 0, 0));
+                }
+                roulette.Sort((x, y) => x.score.CompareTo(y.score));
+                for (int i = 0; i < yList.Count(); i++)
+                {
+                    roulette[i].UpdateY(yList[i]);
+                }
+                roulette.Sort((x, y) => x.score.CompareTo(y.score));
+                for (int i = 0; i < zList.Count(); i++)
+                {
+                    roulette[i].UpdateZ(zList[i]);
+                }
+                child = Node.MergeNodeLists(ParentToChild, roulette);
+            }
+            else
+            {
+                child = ParentToChild;
+            }
+            Multiset final = Node.ToMultiset(child);
+            return final;
         }
 	}
 }

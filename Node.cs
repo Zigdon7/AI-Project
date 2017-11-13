@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+
 
 namespace Numerical3DMatching
 {
@@ -13,8 +13,33 @@ namespace Numerical3DMatching
             this.X = X;
             this.Y = Y;
             this.Z = Z;
-            score = Math.Abs(X + Y + Z - Global.b());
+            this.score = Math.Abs(X + Y + Z - Global.b());
         }
+
+        public void UpdateX(int X)
+        {
+            this.X = X;
+            this.UpdateScore();
+        }
+
+        public void UpdateY(int Y)
+        {
+            this.Y = Y;
+            this.UpdateScore();
+        }
+
+        public void UpdateZ(int Z)
+        {
+            this.Z = Z;
+            this.UpdateScore();
+        }
+
+        private void UpdateScore()
+        {
+            this.score = Math.Abs(this.X + this.Y + this.Z - Global.b());
+
+        }
+
         public static List<Node> MergeNodeLists(List<Node> first, List<Node> second)
         {
             List<Node> final = new List<Node>();
@@ -24,6 +49,19 @@ namespace Numerical3DMatching
             return final;
         }
 
+        public static Multiset ToMultiset(List<Node> n)
+        {
+            int[] XList = Global.Xvalue(), YList = Global.Yvalue(), ZList = Global.Zvalue();
+            for (int i = 0; i < n.Count; i++)
+            {
+                XList[i] = n[i].X;
+                YList[i] = n[i].Y;  
+                ZList[i] = n[i].Z;  
+
+            }
+            Multiset final = new Multiset(XList, YList, ZList);
+            return final;
+        }
     }
 
 
