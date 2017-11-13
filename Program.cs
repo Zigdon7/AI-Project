@@ -10,6 +10,7 @@ namespace Numerical3DMatching
 		static void Main(string[] args)
 		{
 			//init
+			int totalCount = 0; //keeps track of the amount of children in the NextGen List.
             int populationMultiplier = Global.populationMultiplier();
 			int b = Global.b();
 			int[] X = Global.Xvalue();
@@ -33,21 +34,50 @@ namespace Numerical3DMatching
                     holder = Multiset.Randomize();
                     parentList.Add(holder);
                     //holder.print();
-    			}
+  
+  			}
     			//parentList[0].print();
-                //Create Children
-                //if child needs to be mutated, call Mutate Function
+                //Creates (parentList.Count/2) Children
                 List<Multiset> NextGen = new List<Multiset>();
                 for (int k = 0; k < parentList.Count; k += 2)
                 {
                     Multiset holder = new Multiset(X, Y, Z);
                     holder = Multiset.CreateChild(parentList[k], parentList[k + 1]);
                     NextGen.Add(holder);
+					totalCount++;
                     //parentList[k].print();
                     //parentList[k+1].print();
-                    Console.Write("{0} : \n", k);
-                    holder.print();
+                    //Console.Write("{0} : \n", k);
+                    //holder.print();
 				}
+
+				//Sort parentList by ascending totalScore, then add the top 10% to NextGen.
+				parentList.Sort((x,y) => x.totalScore.CompareTo(y.totalScore));
+				
+				//foreach (Multiset item in parentList)
+				//{
+				//item.print();
+				//}
+				//Console.WriteLine("\n\n\n\nEND PARENT SORT\n\n\n\n\n");
+
+				//Add the top 10% of parents into the NextGen population
+				for (int r = 0; r < parentList.Count / 10; r++)
+				{
+					//Console.WriteLine("One of top 10% parents: ");
+					//parentList[r].print();
+					NextGen.Add(parentList[r]);
+					totalCount++;
+				}
+
+
+				//Console.WriteLine("Total Number of children in NextGen should be 150 + 30: {0}", NextGen.Count);
+				//foreach(Multiset item in NextGen)
+				//{
+				//	Console.WriteLine("NextGen Child: ");
+				//	item.print();
+				//}
+
+
 
 				//List<Node> childNodeList = new List<Node>();
 				//childNodeList.MergeNodeLists(parent1.ToNodeList(), parent2.ToNodeList());
