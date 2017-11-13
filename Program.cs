@@ -23,16 +23,18 @@ namespace Numerical3DMatching
 
             if (isSolveable)
             {
-                //Randomly create populationMultiplier*k parents
-                List<Multiset> parentList = new List<Multiset>();
-                for (int i = 0; i < initialSet.X.Length * populationMultiplier; i++)
-                {
-                    Multiset newParent = initialSet;
-                    parentList.Add(initialSet.Randomize(newParent));
-                }
+			
+			//Randomly create populationMultiplier*k parents
+			List<Multiset> parentList = new List<Multiset>();
+			for (int i = 0; i < initialSet.X.Length * populationMultiplier; i++)
+			{
+				Multiset newParent = initialSet;
+				parentList.Add(initialSet.Randomize(newParent));
+			}
+			parentList[0].print();
+			//Create Children
+			//if child needs to be mutated, call Mutate Function
 
-                //Create Children
-                //if child needs to be mutated, call Mutate Function
 
 
                 //Mutator Function

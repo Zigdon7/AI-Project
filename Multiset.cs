@@ -159,7 +159,7 @@ namespace Numerical3DMatching
 				parent.Z[k] = zList[randomNum];
 				zList.RemoveAt(randomNum);
 			}
-
+			//parent.print();
 			//Console.Write("{0},{1},{2}, {3},{4},{5}, {6},{7},{8} Score: {9}\n", parent.X[0], parent.X[1], parent.X[2], parent.Y[0], parent.Y[1], parent.Y[2], parent.Z[0], parent.Z[1], parent.Z[2], parent.score);
 
 			return parent;
