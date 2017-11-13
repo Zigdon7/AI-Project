@@ -69,8 +69,26 @@ namespace Numerical3DMatching
 					totalCount++;
 				}
 
+				//Creates the last 40% of the NextGen children by crossover of the top 80% parents
+					//Check top 80% parent size. -> Console.WriteLine("Top 80% parents size should be 240= {0}",parentList.Count*(.8));
+				for (int s = 0; s < parentList.Count*(0.8); s += 2)
+				{
+					Multiset holder = new Multiset(X, Y, Z);
+					holder = Multiset.CreateChild(parentList[s], parentList[s + 1]);
+					NextGen.Add(holder);
+					totalCount++;
+					//Console.WriteLine("Top 80% parents child: ");
 
-				//Console.WriteLine("Total Number of children in NextGen should be 150 + 30: {0}", NextGen.Count);
+					//parentList[k].print();
+					//parentList[k+1].print();
+					//Console.Write("{0} : \n", k);
+					parentList[s].print();
+					parentList[s + 1].print();
+					holder.print();
+				}
+				//Console.WriteLine("Size of NextGen should be 300 now: {0}",NextGen.Count);
+				
+				//Console.WriteLine("Total Number of children in NextGen should be 150 + 30 120: {0}", NextGen.Count);
 				//foreach(Multiset item in NextGen)
 				//{
 				//	Console.WriteLine("NextGen Child: ");
