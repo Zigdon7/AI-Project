@@ -29,19 +29,23 @@ namespace Numerical3DMatching
                 Multiset newParent = initialSet;
     			for (int i = 0; i < initialSet.X.Length * populationMultiplier; i++)
     			{
-                    Multiset holder = Multiset.Randomize(newParent);
+                    Multiset holder = new Multiset(Global.Xvalue(), Global.Yvalue(), Global.Zvalue());
+                    holder = Multiset.Randomize();
                     parentList.Add(holder);
+                    //holder.print();
     			}
-    			parentList[0].print();
+    			//parentList[0].print();
                 //Create Children
                 //if child needs to be mutated, call Mutate Function
                 List<Multiset> NextGen = new List<Multiset>();
                 for (int k = 0; k < parentList.Count; k += 2)
                 {
-                    Multiset holder = Multiset.CreateChild(parentList[k], parentList[k + 1]);
+                    Multiset holder = new Multiset(X, Y, Z);
+                    holder = Multiset.CreateChild(parentList[k], parentList[k + 1]);
                     NextGen.Add(holder);
-                    parentList[k].print();
-                    parentList[k+1].print();
+                    //parentList[k].print();
+                    //parentList[k+1].print();
+                    Console.Write("{0} : \n", k);
                     holder.print();
 				}
 

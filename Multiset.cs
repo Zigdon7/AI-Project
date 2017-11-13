@@ -10,7 +10,7 @@ namespace Numerical3DMatching
 	{
 		public int[] X, Y, Z;
 		public int totalScore;
-		public Multiset(int[] X, int[] Y, int[] Z)
+        public Multiset(int[] X = null , int[] Y = null, int[] Z = null)
 		{
 			this.X = X;
 			this.Y = Y;
@@ -134,9 +134,9 @@ namespace Numerical3DMatching
             return isSolveable;
         }
 
-		public static Multiset Randomize(Multiset init)
+		public static Multiset Randomize()
 		{
-			Multiset parent = init;
+            Multiset parent = new Multiset(Global.Xvalue(), Global.Yvalue(), Global.Zvalue());
 			Random rand = new Random();
 			var xList = new List<int>(parent.X);
 			//Console.Write("xList size should be 3: {0}", xList.Capacity);
@@ -160,8 +160,13 @@ namespace Numerical3DMatching
 				parent.Z[k] = zList[randomNum];
 				zList.RemoveAt(randomNum);
 			}
-			parent.print();
-			//Console.Write("{0},{1},{2}, {3},{4},{5}, {6},{7},{8} Score: {9}\n", parent.X[0], parent.X[1], parent.X[2], parent.Y[0], parent.Y[1], parent.Y[2], parent.Z[0], parent.Z[1], parent.Z[2], parent.score);
+            parent.totalScore = 0;
+            for (int p = 0; p < parent.X.Length; p++)
+            {
+                parent.totalScore += Math.Abs(((parent.X[p] + parent.Y[p] + parent.Z[p]) - Global.b()));
+            }
+			//parent.print();
+			//Console.Write("{0},{1},{2}, {3},{4},{5}, {6},{7},{8} Score: {9}\n", parent.X[0], parent.X[1], parent.X[2], parent.Y[0], parent.Y[1], parent.Y[2], parent.Z[0], parent.Z[1], parent.Z[2], parent.totalScore);
 
 			return parent;
 		}
