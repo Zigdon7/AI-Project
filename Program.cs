@@ -16,8 +16,8 @@ namespace Numerical3DMatching
 			int[] Z = { 1, 2, 5 };
 
 			Multiset initialSet = new Multiset(X, Y, Z);
-            var isSolveable = initialSet.CheckSolvability(b);
-            initialSet.print();
+            Boolean isSolveable = initialSet.CheckSolvability(b);
+            List<Node> n = initialSet.ToNodeList();
             //check if stored correctly
             //Console.Write("{0},{1},{2}, {3},{4},{5}, {6},{7},{8} Score: {9}\n", initialSet.X[0], initialSet.X[1], initialSet.X[2], initialSet.Y[0], initialSet.Y[1],initialSet.Y[2], initialSet.Z[0],initialSet.Z[1],initialSet.Z[2],initialSet.score);
 

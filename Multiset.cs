@@ -8,16 +8,16 @@ namespace Numerical3DMatching
 	class Multiset
 	{
 		public int[] X, Y, Z;
-		public int score;
-		public Multiset(int[] X, int[] Y, int[] Z, int b = 0)
+		public int totalScore;
+		public Multiset(int[] X, int[] Y, int[] Z)
 		{
 			this.X = X;
 			this.Y = Y;
 			this.Z = Z;
-            this.score = 0;
+            this.totalScore = 0;
             for (int i = 0; i < X.Length; i++)
             {
-                this.score += Math.Abs(X[i] + Y[i] + Z[i] - Global.b());
+                this.totalScore += Math.Abs(X[i] + Y[i] + Z[i] - Global.b());
             }
 		}
 
@@ -89,7 +89,7 @@ namespace Numerical3DMatching
                 }
                 Console.Write("{0}", this.Z[i]);
             }
-            Console.Write("\nScore: {0}\n", this.score);
+            Console.Write("\nTotal Score: {0}\n", this.totalScore);
 
         }
 
@@ -164,5 +164,15 @@ namespace Numerical3DMatching
 
 			return parent;
 		}
+
+        public List<Node> ToNodeList()
+        {
+            List<Node> n = new List<Node>();
+            for (int i = 0; i < this.X.Length; i++){
+                n.Add(new Node(this.X[i], this.Y[i], this.Z[i]));
+            }
+            n.Sort((x, y) => x.score.CompareTo(y.score));
+            return n;
+        }
 	}
 }
