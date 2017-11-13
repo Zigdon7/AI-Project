@@ -164,7 +164,7 @@ namespace Numerical3DMatching
 
 			return parent;
 		}
-
+		
         public List<Node> ToNodeList()
         {
             List<Node> n = new List<Node>();

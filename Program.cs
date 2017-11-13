@@ -34,16 +34,50 @@ namespace Numerical3DMatching
 				parentList.Add(initialSet.Randomize(newParent));
 			}
 			parentList[0].print();
-			//Create Children
-			//if child needs to be mutated, call Mutate Function
+				//Create Children
+				//if child needs to be mutated, call Mutate Function
+				for (int k = 0; k < parentList.Count; k+=2)
+				{
+					Multiset parent = initialSet;
+					var xList = new List<int>(parent.X);
+					var yList = new List<int>(parent.Y);
+					var zList = new List<int>(parent.Z);
+					int[] x = null;
+					int[] y = null;
+					int[] z = null;
+					int childSizeCounter = 0;
+					List<Node> childNodeList = new List<Node>();
+					childNodeList = Node.MergeNodeLists(parentList[k].ToNodeList(), parentList[k+1].ToNodeList());
+
+					foreach (Node node in childNodeList)
+					{
+						if (xList.Contains(node.X) && yList.Contains(node.Y) && zList.Contains(node.Z))
+						{
+							//Node n is new and needs to be added to child
+							x[childSizeCounter] = node.X;
+							xList.Remove(node.X);
+							y[childSizeCounter] = node.Y;
+							yList.Remove(node.Y);
+							z[childSizeCounter] = node.Z;
+							zList.Remove(node.Z);
+							childSizeCounter++;
+						}
+					}
 
 
+					Multiset child = new Multiset(x,y,z);
+					
 
-                //Mutator Function
+
+				}
+				//List<Node> childNodeList = new List<Node>();
+				//childNodeList.MergeNodeLists(parent1.ToNodeList(), parent2.ToNodeList());
+
+				//Mutator Function
 
 
-                //end
-                Console.WriteLine("Hello World!");
+				//end
+				Console.WriteLine("Hello World!");
                 Console.ReadKey(true);
             }
         }
