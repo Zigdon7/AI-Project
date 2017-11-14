@@ -32,7 +32,7 @@ namespace Numerical3DMatching
             }
         }
 
-        private static int[] Shuffle(int[] array)
+        public static int[] Shuffle(int[] array)
         {
             int[] newArray = array;
             for (int i = 1; i < newArray.Length; i++)
@@ -142,9 +142,9 @@ namespace Numerical3DMatching
             return isSolveable;
         }
 
-		public static Multiset Randomize(Multiset initial)
+		public static Multiset Randomize()
 		{
-            Multiset parent = new Multiset(initial.X, initial.Y, initial.Z);
+            Multiset parent = new Multiset(Global.Xvalue(), Global.Yvalue(), Global.Zvalue());
 			Random rand = new Random();
 			var xList = new List<int>(parent.X);
 			var yList = new List<int>(parent.Y);
@@ -188,9 +188,9 @@ namespace Numerical3DMatching
             return n;
         }
 
-        public static Multiset CreateChild(Multiset parent1, Multiset parent2 , Multiset initial)
+        public static Multiset CreateChild(Multiset parent1, Multiset parent2 )
         {
-            Multiset parent = initial;
+            Multiset parent = Global.Initial();
             var xList = new List<int>(parent.X);
             var yList = new List<int>(parent.Y);
             var zList = new List<int>(parent.Z);
@@ -238,7 +238,7 @@ namespace Numerical3DMatching
             {
                 child = ParentToChild;
             }
-            Multiset final = Node.ToMultiset(child, initial);
+            Multiset final = Node.ToMultiset(child);
             return final;
         }
 	}

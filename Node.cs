@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace Numerical3DMatching
 {
@@ -49,18 +49,27 @@ namespace Numerical3DMatching
             return final;
         }
 
-        public static Multiset ToMultiset(List<Node> n, Multiset initial)
+        public static Multiset ToMultiset(List<Node> n)
         {
-            int[] XList = initial.X, YList = initial.Y , ZList = initial.Z;
-            for (int i = 0; i < n.Count; i++)
+            int[] XList = Global.Xvalue(), YList = Global.Yvalue() , ZList = Global.Zvalue();
+            Shuffle(n);
+            for (int i = 1; i < n.Count; i++)
             {
-                XList[i] = n[i].X;
-                YList[i] = n[i].Y;  
-                ZList[i] = n[i].Z;  
+                XList[i-1] = n[i].X;
+                YList[i-1] = n[i].Y;  
+                ZList[i-1] = n[i].Z;  
 
             }
+            XList[n.Count-1] = n[0].X;
+            YList[n.Count-1] = n[0].Y;  
+            ZList[n.Count-1] = n[0].Z; 
             Multiset final = new Multiset(XList, YList, ZList);
             return final;
+        }
+        public static void Shuffle(List<Node> n){
+            Random rnd = new Random();
+            n.OrderBy(item => rnd.Next());
+
         }
     }
 
