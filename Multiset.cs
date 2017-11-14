@@ -20,7 +20,17 @@ namespace Numerical3DMatching
             {
                 this.totalScore += Math.Abs(X[i] + Y[i] + Z[i] - Global.b());
             }
+            CheckScore(this);
+
 		}
+
+        private static void CheckScore(Multiset ms){
+            if(ms.totalScore == 0){
+                Console.WriteLine("Perfect Solution Found: ");
+                ms.print();
+                Console.ReadKey(true);
+            }
+        }
 
         private static int[] Shuffle(int[] array)
         {
@@ -64,7 +74,7 @@ namespace Numerical3DMatching
         public void print()
         {
             //Console.Write("{0},{1},{2}, {3},{4},{5}, {6},{7},{8} Score: {9}/n", initialSet.X[0], initialSet.X[1], initialSet.X[2], initialSet.Y[0], initialSet.Y[1], initialSet.Y[2], initialSet.Z[0], initialSet.Z[1], initialSet.Z[2], initialSet.score);
-            Console.Write("X: ");
+            Console.Write("{");
             for (int i = 0; i < this.X.Length; i++)
             {
                 if(i != 0){
@@ -72,7 +82,7 @@ namespace Numerical3DMatching
                 }
                 Console.Write("{0}", this.X[i]);
             }
-            Console.Write("\nY: ");
+            Console.Write("},{");
             for (int i = 0; i < this.Y.Length; i++)
             {
                 if (i != 0)
@@ -81,7 +91,7 @@ namespace Numerical3DMatching
                 }
                 Console.Write("{0}", this.Y[i]);
             }
-            Console.Write("\nZ: ");
+            Console.Write("},{");
             for (int i = 0; i < this.Z.Length; i++)
             {
                 if (i != 0)
@@ -90,7 +100,7 @@ namespace Numerical3DMatching
                 }
                 Console.Write("{0}", this.Z[i]);
             }
-            Console.Write("\nTotal Score: {0}\n", this.totalScore);
+            Console.Write("}} Total Score: {0}\n", this.totalScore);
 
         }
 
@@ -105,26 +115,26 @@ namespace Numerical3DMatching
             else
             {
                 Console.Write("All sets are the same length \n");
-                int checkSum = b * this.X.Length;
+                int checkSum = 0;
 
                 foreach (int x in this.X)
                 {
-                    checkSum = checkSum - x;
+                    checkSum = checkSum + x;
                 }
                 foreach (int y in this.Y)
                 {
-                    checkSum = checkSum - y;
+                    checkSum = checkSum + y;
                 }
                 foreach (int z in this.Z)
                 {
-                    checkSum = checkSum - z;
+                    checkSum = checkSum + z;
                 }
                 //check if valid
-                if (checkSum == 0)
+                if (checkSum == b * this.X.Length)
                 {
                     Console.WriteLine("Check sum checks out. This will now try to be solved. \n");
                 } else{
-                    Console.WriteLine("Check sum does not check out. This will not try to be solved. \n");
+                    Console.WriteLine("Check sum does not check out. This will not try to be solved. Try b= {0}\n", checkSum/this.X.Length );
                     isSolveable = false;
                 }
 
@@ -139,7 +149,6 @@ namespace Numerical3DMatching
             Multiset parent = new Multiset(Global.Xvalue(), Global.Yvalue(), Global.Zvalue());
 			Random rand = new Random();
 			var xList = new List<int>(parent.X);
-			//Console.Write("xList size should be 3: {0}", xList.Capacity);
 			var yList = new List<int>(parent.Y);
 			var zList = new List<int>(parent.Z);
 			for (int i = 0; i < parent.X.Length; i++)
@@ -165,8 +174,6 @@ namespace Numerical3DMatching
             {
                 parent.totalScore += Math.Abs(((parent.X[p] + parent.Y[p] + parent.Z[p]) - Global.b()));
             }
-			//parent.print();
-			//Console.Write("{0},{1},{2}, {3},{4},{5}, {6},{7},{8} Score: {9}\n", parent.X[0], parent.X[1], parent.X[2], parent.Y[0], parent.Y[1], parent.Y[2], parent.Z[0], parent.Z[1], parent.Z[2], parent.totalScore);
 
 			return parent;
 		}
@@ -174,12 +181,15 @@ namespace Numerical3DMatching
         public List<Node> ToNodeList()
         {
             List<Node> n = new List<Node>();
+
             for (int i = 0; i < this.X.Length; i++){
                 n.Add(new Node(this.X[i], this.Y[i], this.Z[i]));
             }
+
             n.Sort((x, y) => x.score.CompareTo(y.score));
             return n;
         }
+
         public static Multiset CreateChild(Multiset parent1, Multiset parent2)
         {
             Multiset parent = Global.Initial();
