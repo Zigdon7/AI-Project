@@ -34,7 +34,7 @@ namespace Numerical3DMatching
         }
         public static int Generations()
         {
-            return 100;
+            return 20;
         }
         public static Multiset GenerateRandom(int count){
             List<int> X = new List<int>();

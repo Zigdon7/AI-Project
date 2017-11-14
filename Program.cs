@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MoreLinq;
 
 namespace Numerical3DMatching
 {
@@ -45,16 +46,20 @@ namespace Numerical3DMatching
 
                 for (int i = 0; i < Global.Generations(); i++)
                 {
-                    Console.Write("Finding Generation {0}\n", i);
+                    Console.Write("Finding Generation {0}\n", i+1);
                     NextGen = FindNextGen(NextGen);
-                    Console.Write("Generation {0}'s best score is {1}\n", i, NextGen[0].totalScore);
-                    Console.Write("Gen {0}'s Solution: ", i);
+                    Console.Write("Generation {0}'s best score is {1}\n", i+1, NextGen[0].totalScore);
+                    Console.Write("Gen {0}'s Solution: \n", i+1);
                     NextGen[0].print();
                     Console.Write("\n");
 
-                }  
-
-				Console.WriteLine("Hello World!");
+                }
+                List<Node> guess = WoC(NextGen);
+                Multiset finalguess = Node.FindBest(guess);
+                Console.Write("Best guess's score is {0}\n", finalguess.totalScore);
+                Console.Write("Final Guess Solution: ");
+                Node.print(finalguess.ToNodeList());
+				Console.WriteLine("\nHello World!");
                 Console.ReadKey(true);
             }
         }
@@ -114,13 +119,20 @@ namespace Numerical3DMatching
                 //increment++;
             }
 
-            //WoAC function
+
             return NextGen;
             //end
         }
 
-
-
+        public static List<Node >WoC(List<Multiset> start){
+            List<Node> best = new List<Node>();
+            foreach(Multiset item in start){
+                best = Node.MergeNodeLists(best, item.ToNodeList());
+            }
+            best.GroupBy(o => new { o.X, o.Y, o.Z }).OrderByDescending(g => g.Count()).ToList();
+            List<Node> final = best.DistinctBy(o => new { o.X, o.Y, o.Z }).ToList();;
+            return final;
+        }
     }
 
 }

@@ -190,55 +190,9 @@ namespace Numerical3DMatching
 
         public static Multiset CreateChild(Multiset parent1, Multiset parent2 )
         {
-            Multiset parent = Global.Initial();
-            var xList = new List<int>(parent.X);
-            var yList = new List<int>(parent.Y);
-            var zList = new List<int>(parent.Z);
-            int childSizeCounter = 0;
             List<Node> childNodeList = new List<Node>();
-            List<Node> ParentToChild = new List<Node>();
             childNodeList = Node.MergeNodeLists(parent1.ToNodeList(), parent2.ToNodeList());
-
-            foreach (Node nodes in childNodeList)
-            {
-                if (xList.Contains(nodes.X) && yList.Contains(nodes.Y) && zList.Contains(nodes.Z))
-                {
-                    //Node n is new and needs to be added to child
-                    ParentToChild.Add(nodes);
-                    xList.Remove(nodes.X);
-                    yList.Remove(nodes.Y);
-                    zList.Remove(nodes.Z);
-                    childSizeCounter++;
-                }
-            }
-            List<Node> child = new List<Node>();
-            if (childSizeCounter < parent.X.Length)
-            {
-                List<Node> roulette = new List<Node>();
-                xList.OrderByDescending(i => i); ;
-                yList.OrderByDescending(i => i);
-                zList.OrderByDescending(i => i);
-                for (int i = 0; i < xList.Count(); i++)
-                {
-                    roulette.Add(new Node(xList[i], 0, 0));
-                }
-                roulette.Sort((x, y) => x.score.CompareTo(y.score));
-                for (int i = 0; i < yList.Count(); i++)
-                {
-                    roulette[i].UpdateY(yList[i]);
-                }
-                roulette.Sort((x, y) => x.score.CompareTo(y.score));
-                for (int i = 0; i < zList.Count(); i++)
-                {
-                    roulette[i].UpdateZ(zList[i]);
-                }
-                child = Node.MergeNodeLists(ParentToChild, roulette);
-            }
-            else
-            {
-                child = ParentToChild;
-            }
-            Multiset final = Node.ToMultiset(child);
+            Multiset final = Node.FindBest(childNodeList);
             return final;
         }
 	}
