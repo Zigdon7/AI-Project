@@ -81,11 +81,11 @@ namespace Numerical3DMatching
 			int counter = 0;
             foreach (Multiset sortedChild in NextGen)
             {
-				if (counter > NextGen.Count * (startPercentage/10))
+				if (counter > ((NextGen.Count/10) * startPercentage))
 				{
 					startPercentage++;
 				}
-                int r = randMutate.Next(startPercentage, 100);
+                int r = randMutate.Next(startPercentage, 101);
                 if (r == startPercentage)
                 {
 					//Mutate child
