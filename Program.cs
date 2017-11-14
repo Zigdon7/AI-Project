@@ -20,7 +20,7 @@ namespace Numerical3DMatching
             Multiset initialSet = Global.Initial();
 
             //Random
-             Multiset possibleRandom = Global.GenerateRandom(25);
+             Multiset possibleRandom = Global.GenerateRandom(30);
              possibleRandom.print();
              Console.Write("\n Here is a possible random solution that is solveable");
 
