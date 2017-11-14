@@ -27,7 +27,7 @@ namespace Numerical3DMatching
         private static void CheckScore(Multiset ms){
             if(ms.totalScore == 0){
                 Console.WriteLine("Perfect Solution Found: ");
-                ms.print();
+                Node.print(ms.ToNodeList());
                 Console.ReadKey(true);
             }
         }

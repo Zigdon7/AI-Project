@@ -71,6 +71,11 @@ namespace Numerical3DMatching
             n.OrderBy(item => rnd.Next());
 
         }
+        public static void print(List<Node> nodes){
+            foreach(Node node in nodes){
+                Console.Write("{{{0}, \t {1}, \t {2}}} \n" , node.X, node.Y, node.Z);
+            }
+        }
     }
 
 
