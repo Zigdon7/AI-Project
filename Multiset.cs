@@ -65,9 +65,8 @@ namespace Numerical3DMatching
             }else if (number == 2)
             {
                 mutatedChild.Z = Shuffle(mutatedChild.Z);  
-
             }
-
+            CheckScore(mutatedChild);
 			return mutatedChild;
 		}
 
