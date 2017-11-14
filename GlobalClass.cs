@@ -12,17 +12,17 @@ namespace Numerical3DMatching
             return 100;
         }
         public static int[] Xvalue(){
-            int[] X = { 36, 69, 14, 23, 33, 99 };
+            int[] X = { 99, 69, 24, 23, 33, 36 };
             return X;
         }
         public static int[] Yvalue()
         {
-            int[] Y = { 17, 30, 23, 35, 33, 0};
+            int[] Y = { 0, 23, 30, 35, 16, 17};
             return Y;
         }
         public static int[] Zvalue()
         {
-            int[] Z = { 57, 1, 54, 34, 51, 1 };
+            int[] Z = { 47, 1, 53, 42, 51, 1 };
             return Z;
         }
         public static Multiset Initial(){
