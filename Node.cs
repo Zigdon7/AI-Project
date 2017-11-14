@@ -49,9 +49,9 @@ namespace Numerical3DMatching
             return final;
         }
 
-        public static Multiset ToMultiset(List<Node> n)
+        public static Multiset ToMultiset(List<Node> n, Multiset initial)
         {
-            int[] XList = Global.Xvalue(), YList = Global.Yvalue(), ZList = Global.Zvalue();
+            int[] XList = initial.X, YList = initial.Y , ZList = initial.Z;
             for (int i = 0; i < n.Count; i++)
             {
                 XList[i] = n[i].X;

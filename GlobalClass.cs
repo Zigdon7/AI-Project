@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Numerical3DMatching
 {
     public static class Global
@@ -28,6 +31,27 @@ namespace Numerical3DMatching
         public static Multiset Initial(){
             Multiset initial = new Multiset(Xvalue(), Yvalue(), Zvalue());
             return initial;
+        }
+        public static int Generations()
+        {
+            return 20;
+        }
+        public static Multiset GenerateRandom(int count){
+            List<int> X = new List<int>();
+            List<int> Y = new List<int>();
+            List<int> Z = new List<int>();
+            Random rand = new Random();
+
+            for (int i = 0; i < count; i++){
+                X.Add(rand.Next(1,Global.b()));
+                Y.Add(rand.Next(1, Global.b() - X[i]));
+                Z.Add(Global.b() - X[i] - Y[i]);
+            }
+            X.Sort();
+            Y.Sort();
+            Z.Sort();
+            Multiset final = new Multiset(X.ToArray(), Y.ToArray(), Z.ToArray());
+            return final;
         }
     }
 }

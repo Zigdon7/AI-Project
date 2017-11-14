@@ -72,7 +72,6 @@ namespace Numerical3DMatching
 
         public void print()
         {
-            //Console.Write("{0},{1},{2}, {3},{4},{5}, {6},{7},{8} Score: {9}/n", initialSet.X[0], initialSet.X[1], initialSet.X[2], initialSet.Y[0], initialSet.Y[1], initialSet.Y[2], initialSet.Z[0], initialSet.Z[1], initialSet.Z[2], initialSet.score);
             Console.Write("{");
             for (int i = 0; i < this.X.Length; i++)
             {
@@ -143,9 +142,9 @@ namespace Numerical3DMatching
             return isSolveable;
         }
 
-		public static Multiset Randomize()
+		public static Multiset Randomize(Multiset initial)
 		{
-            Multiset parent = new Multiset(Global.Xvalue(), Global.Yvalue(), Global.Zvalue());
+            Multiset parent = new Multiset(initial.X, initial.Y, initial.Z);
 			Random rand = new Random();
 			var xList = new List<int>(parent.X);
 			var yList = new List<int>(parent.Y);
@@ -189,9 +188,9 @@ namespace Numerical3DMatching
             return n;
         }
 
-        public static Multiset CreateChild(Multiset parent1, Multiset parent2)
+        public static Multiset CreateChild(Multiset parent1, Multiset parent2 , Multiset initial)
         {
-            Multiset parent = Global.Initial();
+            Multiset parent = initial;
             var xList = new List<int>(parent.X);
             var yList = new List<int>(parent.Y);
             var zList = new List<int>(parent.Z);
@@ -239,7 +238,7 @@ namespace Numerical3DMatching
             {
                 child = ParentToChild;
             }
-            Multiset final = Node.ToMultiset(child);
+            Multiset final = Node.ToMultiset(child, initial);
             return final;
         }
 	}
