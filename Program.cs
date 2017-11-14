@@ -77,17 +77,22 @@ namespace Numerical3DMatching
             Random randMutate = new Random();
             NextGen.Sort((x, y) => x.totalScore.CompareTo(y.totalScore));
             int startPercentage = 1;
-            int increment = 1;
+            //int increment = 1;
+			int counter = 0;
             foreach (Multiset sortedChild in NextGen)
             {
+				if (counter > NextGen.Count * (startPercentage/10))
+				{
+					startPercentage++;
+				}
                 int r = randMutate.Next(startPercentage, 100);
-                //if (r == startPercentage)
-                //{
-                //  //Mutate child
-                //  sortedChild.
-                //}
-                increment++;
-
+                if (r == startPercentage)
+                {
+					//Mutate child
+					NextGen[counter] = sortedChild.MutateChild();
+                }
+                //increment++;
+				counter++;
             }
 
             //WoAC function
