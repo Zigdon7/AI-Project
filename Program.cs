@@ -30,9 +30,9 @@ namespace Numerical3DMatching
                     holder = Multiset.Randomize();
                     parentList.Add(holder);
   			    }
-                FindNextGen(parentList);
+                List<Multiset> NextGen = FindNextGen(parentList);
                 for (int i = 0; i < parentList.Count; i++){
-                    parentList[i].print();
+                    NextGen[i].print();
                 }
 				Console.WriteLine("Hello World!");
                 Console.ReadKey(true);
@@ -57,8 +57,7 @@ namespace Numerical3DMatching
             //Add the top 10% of parents into the NextGen population
             for (int r = 0; r < parentList.Count / 10; r++)
             {
-                //Console.WriteLine("One of top 10% parents: ");
-                parentList[r].print();
+                //parentList[r].print();
                 NextGen.Add(parentList[r]);
                 totalCount++;
             }
@@ -71,7 +70,6 @@ namespace Numerical3DMatching
                 holder = Multiset.CreateChild(parentList[s], parentList[s + 1]);
                 NextGen.Add(holder);
                 totalCount++;
-                //holder.print();
 
             }
 
