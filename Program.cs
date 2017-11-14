@@ -33,6 +33,14 @@ namespace Numerical3DMatching
                     Multiset holder = new Multiset(Global.Xvalue(), Global.Yvalue(), Global.Zvalue());
                     holder = Multiset.Randomize();
                     parentList.Add(holder);
+					//checks parents for a solution
+					//if (holder.totalScore == 0)
+					//{
+					//	Console.WriteLine("Prefect Solution Found: ");
+					//	holder.print();
+					//	Console.ReadKey(true);
+						
+					//}
                     //holder.print();
   
   			}
@@ -77,31 +85,23 @@ namespace Numerical3DMatching
 					holder = Multiset.CreateChild(parentList[s], parentList[s + 1]);
 					NextGen.Add(holder);
 					totalCount++;
-					//Console.WriteLine("Top 80% parents child: ");
-
-					//parentList[k].print();
-					//parentList[k+1].print();
-					//Console.Write("{0} : \n", k);
-					parentList[s].print();
-					parentList[s + 1].print();
-					holder.print();
+					
 				}
-				//Console.WriteLine("Size of NextGen should be 300 now: {0}",NextGen.Count);
-				
-				//Console.WriteLine("Total Number of children in NextGen should be 150 + 30 120: {0}", NextGen.Count);
-				//foreach(Multiset item in NextGen)
-				//{
-				//	Console.WriteLine("NextGen Child: ");
-				//	item.print();
-				//}
-
-
-
-				//List<Node> childNodeList = new List<Node>();
-				//childNodeList.MergeNodeLists(parent1.ToNodeList(), parent2.ToNodeList());
+				//check for solution in NextGen
+				foreach (Multiset z in NextGen)
+				{
+					if (z.totalScore == 0)
+					{
+						Console.WriteLine("Perfect Solution Found: ");
+						z.print();
+						Console.ReadKey(true);
+					}
+				}
 
 				//Mutator Function
 
+
+				//WoAC function
 
 				//end
 				Console.WriteLine("Hello World!");
