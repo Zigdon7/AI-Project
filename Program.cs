@@ -67,7 +67,21 @@ namespace Numerical3DMatching
 				}
 
 				//Mutator Function
+				Random randMutate = new Random();
+				NextGen.Sort((x, y) => x.totalScore.CompareTo(y.totalScore));
+				int startPercentage = 1;
+				int increment = 1;
+				foreach (Multiset sortedChild in NextGen)
+				{
+					int r = randMutate.Next(startPercentage,100);
+					//if (r == startPercentage)
+					//{
+					//	//Mutate child
+					//	sortedChild.
+					//}
+					increment++;
 
+				}
 
 				//WoAC function
 
