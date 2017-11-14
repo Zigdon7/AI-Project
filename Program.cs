@@ -78,10 +78,10 @@ namespace Numerical3DMatching
             NextGen.Sort((x, y) => x.totalScore.CompareTo(y.totalScore));
             int startPercentage = 1;
             //int increment = 1;
-			int counter = 0;
-            foreach (Multiset sortedChild in NextGen)
+			//int counter = 0;
+            for(int v = 0; v < NextGen.Count; v++)
             {
-				if (counter > ((NextGen.Count/10) * startPercentage))
+				if (v > ((NextGen.Count/10) * startPercentage))
 				{
 					startPercentage++;
 				}
@@ -89,10 +89,9 @@ namespace Numerical3DMatching
                 if (r == startPercentage)
                 {
 					//Mutate child
-					NextGen[counter] = sortedChild.MutateChild();
+					NextGen[v] = NextGen[v].MutateChild();
                 }
                 //increment++;
-				counter++;
             }
 
             //WoAC function
