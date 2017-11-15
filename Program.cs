@@ -21,8 +21,7 @@ namespace Numerical3DMatching
             Multiset initialSet = Global.Initial();
 
             //Random
-            Multiset possibleRandom = Global.GenerateRandom(30);
-            possibleRandom.print();
+            Multiset possibleRandom = Global.GenerateRandom(50);
             Console.Write("\n Here is a possible random solution that is solveable");
 
             Console.Write("Initial Set: \n");
@@ -59,6 +58,7 @@ namespace Numerical3DMatching
                 Console.Write("Best guess's score is {0}\n", finalguess.totalScore);
                 Console.Write("Final Guess Solution: \n");
                 Node.print(finalguess.ToNodeList());
+                possibleRandom.print();
 				Console.WriteLine("Hello World!");
                 Console.ReadKey(true);
             }
