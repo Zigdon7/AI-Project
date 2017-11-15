@@ -10,9 +10,9 @@ namespace Numerical3DMatching
         {
             return 50;
         }
-        public static int populationMultiplier()
+        public static int population()
         {
-            return 100;
+            return 500;
         }
         public static int[] Xvalue(){
             int[] X = { 47, 36, 14, 14, 40, 27, 13, 36, 24, 35, 11, 31, 22, 24, 8, 29, 44, 23, 4, 8, 47, 30, 40, 3, 40, 8, 33, 28, 37, 10 };
@@ -34,7 +34,7 @@ namespace Numerical3DMatching
         }
         public static int Generations()
         {
-            return 20;
+            return 1000;
         }
         public static Multiset GenerateRandom(int count){
             List<int> X = new List<int>();

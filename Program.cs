@@ -11,7 +11,7 @@ namespace Numerical3DMatching
 		static void Main(string[] args)
 		{
 			//init
-            int populationMultiplier = Global.populationMultiplier();
+            int population = Global.population();
 			int b = Global.b();
             // Set in Global
 
@@ -21,9 +21,9 @@ namespace Numerical3DMatching
             Multiset initialSet = Global.Initial();
 
             //Random
-             Multiset possibleRandom = Global.GenerateRandom(30);
-             possibleRandom.print();
-             Console.Write("\n Here is a possible random solution that is solveable");
+            Multiset possibleRandom = Global.GenerateRandom(30);
+            possibleRandom.print();
+            Console.Write("\n Here is a possible random solution that is solveable");
 
             Console.Write("Initial Set: \n");
             initialSet.print();
@@ -34,9 +34,9 @@ namespace Numerical3DMatching
             if (isSolveable)
             {
 			
-    			//Randomly create populationMultiplier*k parents
+    			//Randomly create population parents
     			List<Multiset> parentList = new List<Multiset>();
-    			for (int i = 0; i < initialSet.X.Length * populationMultiplier; i++)
+    			for (int i = 0; i < population; i++)
     			{
                     Multiset holder = new Multiset(Global.Xvalue() , Global.Yvalue(), Global.Zvalue());
                     holder = Multiset.Randomize();
@@ -57,9 +57,9 @@ namespace Numerical3DMatching
                 List<Node> guess = WoC(NextGen);
                 Multiset finalguess = Node.FindBest(guess);
                 Console.Write("Best guess's score is {0}\n", finalguess.totalScore);
-                Console.Write("Final Guess Solution: ");
+                Console.Write("Final Guess Solution: \n");
                 Node.print(finalguess.ToNodeList());
-				Console.WriteLine("\nHello World!");
+				Console.WriteLine("Hello World!");
                 Console.ReadKey(true);
             }
         }
