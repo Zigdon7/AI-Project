@@ -106,9 +106,9 @@ namespace Numerical3DMatching
 			//int counter = 0;
             for(int v = 0; v < NextGen.Count; v++)
             {
-				if (v > ((NextGen.Count/10) * startPercentage))
+				if (v > ((NextGen.Count*(0.05)) * startPercentage))
 				{
-					startPercentage += 2;
+					startPercentage++;
 				}
                 int r = randMutate.Next(startPercentage, 101);
                 if (r == startPercentage)
