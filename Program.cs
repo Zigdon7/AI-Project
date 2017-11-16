@@ -21,11 +21,10 @@ namespace Numerical3DMatching
             Multiset initialSet = Global.Initial();
 
             //Random
-            Multiset possibleRandom = Global.GenerateRandom(50);
+            Multiset possibleRandom = Global.GenerateRandom(25);
             Console.Write("\n Here is a possible random solution that is solveable");
 
-            Console.Write("Initial Set: \n");
-            initialSet.print();
+            possibleRandom.print();
 
 
             Boolean isSolveable = initialSet.CheckSolvability(b);
@@ -58,7 +57,6 @@ namespace Numerical3DMatching
                 Console.Write("Best guess's score is {0}\n", finalguess.totalScore);
                 Console.Write("Final Guess Solution: \n");
                 Node.print(finalguess.ToNodeList());
-                possibleRandom.print();
 				Console.WriteLine("Hello World!");
                 Console.ReadKey(true);
             }
@@ -106,7 +104,7 @@ namespace Numerical3DMatching
 			//int counter = 0;
             for(int v = 0; v < NextGen.Count; v++)
             {
-				if (v > ((NextGen.Count*(0.05)) * startPercentage))
+				if (v > ((NextGen.Count*(0.01)) * startPercentage))
 				{
 					startPercentage++;
 				}

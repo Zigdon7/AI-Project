@@ -12,20 +12,20 @@ namespace Numerical3DMatching
         }
         public static int population()
         {
-            return 10000;
+            return 500;
         }
         public static int[] Xvalue(){
-            int[] X = { 22, 46, 20, 33, 21, 39, 20, 18, 3, 21, 1, 41, 28, 3, 33, 10, 15, 18, 43, 3, 20, 18, 30, 28, 42, 44, 11, 21, 7, 34, 3, 38, 5, 13, 5, 24, 9, 22, 19, 33, 11, 30, 4, 48, 24, 18, 1, 36, 25, 29 };
+            int[] X = { 19, 48, 11, 35, 30, 22, 27, 14, 30, 25, 6, 26, 49, 7, 49, 47, 31, 29, 4, 38, 48, 30, 17, 20, 23 };
             return X;
         }
         public static int[] Yvalue()
         {
-            int[] Y = { 28, 7, 13, 1, 27, 5, 14, 1, 2, 23, 1, 22, 8, 8, 36, 14, 1, 28, 1, 27, 18, 16, 2, 25, 14, 34, 19, 3, 6, 29, 3, 14, 2, 15, 22, 40, 9, 3, 30, 36, 1, 12, 1, 11, 1, 11, 30, 5, 2, 21 };
+            int[] Y = { 4, 19, 10, 1, 3, 9, 13, 18, 17, 16, 17, 1, 6, 25, 8, 1, 1, 4, 1, 11, 17, 5, 1, 18, 13 };
             return Y;
         }
         public static int[] Zvalue()
         {
-            int[] Z = { 1, 21, 17, 3, 12, 10, 16, 22, 30, 7, 21, 24, 1, 9, 12, 11, 19, 5, 6, 31, 12, 21, 7, 8, 3, 6, 10, 5, 41, 10, 18, 9, 31, 22, 17, 23, 25, 1, 16, 10, 38, 8, 15, 1, 1, 3, 2, 28, 23, 16 };
+            int[] Z = { 27, 20, 1, 5, 7, 19, 17, 6, 18, 9, 27, 18, 18, 0, 0, 2, 17, 1, 45, 1, 11, 22, 3, 17, 15 };
             return Z;
         }
         public static Multiset Initial(){
@@ -34,7 +34,7 @@ namespace Numerical3DMatching
         }
         public static int Generations()
         {
-            return 100;
+            return 1000;
         }
         public static Multiset GenerateRandom(int count){
             List<int> X = new List<int>();
