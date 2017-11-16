@@ -85,8 +85,8 @@ namespace Numerical3DMatching
                 totalCount++;
             }
 
-            //Creates the last 40% of the NextGen children by crossover of the top 80% parents
-            //Check top 80% parent size. -> Console.WriteLine("Top 80% parents size should be 240= {0}",parentList.Count*(.8));
+            //Creates the last 10% of the NextGen children by crossover of the top 80% parents
+            //Check top 20% parent size. -> Console.WriteLine("Top 20% parents size should be 240= {0}",parentList.Count*(.8));
             for (int s = 0; s < parentList.Count * (0.2); s += 2)
             {
                 Multiset holder = new Multiset(Global.Xvalue(), Global.Yvalue(), Global.Zvalue());
@@ -98,16 +98,32 @@ namespace Numerical3DMatching
 
             //Mutator Function
             Random randMutate = new Random();
-            NextGen.Sort((x, y) => x.totalScore.CompareTo(y.totalScore));
+            parentList.Sort((x, y) => x.totalScore.CompareTo(y.totalScore));
             for (int v = 0; v < parentList.Count * .3; v++)
             {
                 Multiset holder = new Multiset(Global.Xvalue(), Global.Yvalue(), Global.Zvalue());
-                holder = Multiset.CreateChild(Multiset.Randomize(), NextGen[v]);
+                holder = Multiset.CreateChild(Multiset.Randomize(), parentList[v]);
                 NextGen.Add(holder);
             }
             //int increment = 1;
 			//int counter = 0;
+            int startPercentage = 1;
             NextGen.Sort((x, y) => x.totalScore.CompareTo(y.totalScore));
+            for (int v = 0; v < NextGen.Count; v++)
+            {
+                if (v > ((NextGen.Count * (0.01)) * startPercentage))
+                {
+                    startPercentage++;
+                }
+                int r = randMutate.Next(startPercentage, 101);
+                if (r == startPercentage)
+                {
+                    //Mutate child
+                    NextGen[v] = NextGen[v].MutateChild();
+                }
+                //increment++;
+            }
+
             return NextGen;
             //end
         }
