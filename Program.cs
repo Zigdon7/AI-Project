@@ -21,7 +21,7 @@ namespace Numerical3DMatching
             Multiset initialSet = Global.Initial();
 
             //Random
-            Multiset possibleRandom = Global.GenerateRandom(25);
+            Multiset possibleRandom = Global.GenerateRandom(40);
             Console.Write("\n Here is a possible random solution that is solveable");
 
             possibleRandom.print();
@@ -102,7 +102,7 @@ namespace Numerical3DMatching
             for (int v = 0; v < parentList.Count * .3; v++)
             {
                 Multiset holder = new Multiset(Global.Xvalue(), Global.Yvalue(), Global.Zvalue());
-                holder = Multiset.CreateChild(Multiset.Randomize(), parentList[v]);
+                holder = Multiset.CreateChild(Multiset.Randomize(), parentList[v], 1);
                 NextGen.Add(holder);
             }
             //int increment = 1;

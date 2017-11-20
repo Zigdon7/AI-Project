@@ -188,10 +188,13 @@ namespace Numerical3DMatching
             return n;
         }
 
-        public static Multiset CreateChild(Multiset parent1, Multiset parent2 )
+        public static Multiset CreateChild(Multiset parent1, Multiset parent2, int shuffle = 0)
         {
             List<Node> childNodeList = new List<Node>();
             childNodeList = Node.MergeNodeLists(parent1.ToNodeList(), parent2.ToNodeList());
+            if (shuffle == 1){
+                Node.Shuffle(childNodeList);
+            }
             Multiset final = Node.FindBest(childNodeList);
             return final;
         }
